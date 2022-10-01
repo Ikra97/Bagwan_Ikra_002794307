@@ -1,6 +1,5 @@
 package model;
 
-import java.awt.image.BufferedImage;
 import java.util.Date;
 
 /**
@@ -19,7 +18,7 @@ public class EmployeeInfo {
     private String positionTitle;
     private int telephone;
     private String email;
-    private BufferedImage photo;
+    private String photo;
 
     /**
      * @return the name
@@ -164,14 +163,14 @@ public class EmployeeInfo {
     /**
      * @return the photo
      */
-    public BufferedImage getPhoto() {
+    public String getPhoto() {
         return photo;
     }
 
     /**
      * @param photo the photo to set
      */
-    public void setPhoto(BufferedImage photo) {
+    public void setPhoto(String photo) {
         this.photo = photo;
     }
     

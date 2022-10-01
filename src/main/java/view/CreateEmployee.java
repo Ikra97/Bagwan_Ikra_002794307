@@ -20,6 +20,9 @@ public class CreateEmployee extends javax.swing.JFrame {
     JFileChooser j = new JFileChooser();
     
     EmployeeInfo employee = new EmployeeInfo();
+    
+    EmployeeInfo emp;
+    
     ArrayList<EmployeeInfo> employeeArray;
     
     String imagePath = "";
@@ -388,6 +391,8 @@ public class CreateEmployee extends javax.swing.JFrame {
         employee.setPositionTitle(positionTitleTxt.getText());
         employee.setMobileNumber(Integer.parseInt(telephoneTxt.getText()));
         employee.setEmail(emailTxt.getText());
+        employee.setStartDate(startDateTxt.getText());
+        employee.setPhoto(imagePath);
         
         this.employeeArray.add(employee);
     }//GEN-LAST:event_saveButtonMouseClicked
@@ -612,5 +617,17 @@ public class CreateEmployee extends javax.swing.JFrame {
       
     }
 
-
+    private void viewEmployeeProfile(EmployeeInfo emp) {
+        nameTxt.setText(emp.getName());
+        employeeIdTxt.setText(Integer.toString(emp.getEmployeeId()));
+        ageTxt.setText(Integer.toString(emp.getAge()));
+        genderTxt.select(1);
+        levelTxt.select(1);
+        teamInfoTxt.setText(emp.getTeamInfo());
+        positionTitleTxt.setText(emp.getPositionTitle());
+        telephoneTxt.setText(Integer.toString(emp.gettelephone()));
+        emailTxt.setText(emp.getEmail());
+        startDateTxt.setText(emp.getStartDate());
+        
+    }
 }
