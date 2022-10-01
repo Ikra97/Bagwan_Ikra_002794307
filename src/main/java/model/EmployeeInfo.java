@@ -12,7 +12,7 @@ public class EmployeeInfo {
     private int employeeId;
     private int age;
     private String gender;
-    private Date startDate;
+    private String startDate;
     private String level;
     private String teamInfo;
     private String positionTitle;
@@ -79,14 +79,14 @@ public class EmployeeInfo {
     /**
      * @return the startDate
      */
-    public Date getStartDate() {
+    public String getStartDate() {
         return startDate;
     }
 
     /**
      * @param startDate the startDate to set
      */
-    public void setStartDate(Date startDate) {
+    public void setStartDate(String startDate) {
         this.startDate = startDate;
     }
 
