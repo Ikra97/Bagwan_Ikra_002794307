@@ -112,7 +112,8 @@ public class FirstPage extends javax.swing.JFrame {
 
     private void createButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_createButtonMouseClicked
         // TODO add your handling code here:
-        CreateEmployee addEmp = new CreateEmployee(this.employeeArray);
+        CreateEmployee addEmp;
+        addEmp = new CreateEmployee(this.employeeArray,null, false);
         addEmp.setDefaultCloseOperation(1);
         
     }//GEN-LAST:event_createButtonMouseClicked

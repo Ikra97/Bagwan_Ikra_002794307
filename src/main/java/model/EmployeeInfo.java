@@ -135,14 +135,14 @@ public class EmployeeInfo {
     /**
      * @return the telephone
      */
-    public int gettelephone() {
+    public int getTelephone() {
         return telephone;
     }
 
     /**
      * @param telephone the telephone to set
      */
-    public void setMobileNumber(int telephone) {
+    public void setTelephone(int telephone) {
         this.telephone = telephone;
     }
 

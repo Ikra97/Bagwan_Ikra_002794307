@@ -30,11 +30,20 @@ public class CreateEmployee extends javax.swing.JFrame {
     
     String specialCharacters = "!@#$%^&*()_+<:;,.'\"";
     
-    public CreateEmployee(ArrayList<EmployeeInfo> employeeArray) {
+    public CreateEmployee(ArrayList<EmployeeInfo> employeeArray,
+            EmployeeInfo emp, 
+            Boolean display
+    ){
+        
         initComponents();
         this.employeeArray = employeeArray;
         setVisible(true);
         setSize(1000, 1000);
+        
+        if(display){
+            
+            displayEmployeeProfile(emp);
+        }
     }
 
     /**
@@ -150,7 +159,7 @@ public class CreateEmployee extends javax.swing.JFrame {
             }
         });
 
-        telephone.setText("Phone Number");
+        telephone.setText("Telephone ");
 
         telephoneTxt.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
@@ -219,29 +228,6 @@ public class CreateEmployee extends javax.swing.JFrame {
                 .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(positiontitle)
-                                .addGap(18, 18, 18)
-                                .addComponent(positionTitleTxt))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(telephone)
-                                    .addComponent(email)
-                                    .addComponent(photo))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(telephoneTxt)
-                                    .addComponent(emailTxt)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(photoField)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(imagePathLabel)
-                                        .addGap(0, 6, Short.MAX_VALUE)))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 335, Short.MAX_VALUE)
-                        .addComponent(saveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(191, 191, 191))
-                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(employeeId)
                             .addComponent(gender)
@@ -267,7 +253,36 @@ public class CreateEmployee extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(startDateTxt)
                                     .addComponent(levelTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE))))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(telephone, javax.swing.GroupLayout.DEFAULT_SIZE, 92, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(telephoneTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(672, 672, 672))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(email)
+                                    .addComponent(photo))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(69, 69, 69)
+                                        .addComponent(photoField)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(imagePathLabel)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 309, Short.MAX_VALUE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(51, 51, 51)
+                                        .addComponent(emailTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(positiontitle)
+                                .addGap(18, 18, 18)
+                                .addComponent(positionTitleTxt)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(saveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(191, 191, 191))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -389,7 +404,7 @@ public class CreateEmployee extends javax.swing.JFrame {
         employee.setLevel(levelTxt.getSelectedItem());
         employee.setTeamInfo(teamInfoTxt.getText());
         employee.setPositionTitle(positionTitleTxt.getText());
-        employee.setMobileNumber(Integer.parseInt(telephoneTxt.getText()));
+        employee.setTelephone(Integer.parseInt(telephoneTxt.getText()));
         employee.setEmail(emailTxt.getText());
         employee.setStartDate(startDateTxt.getText());
         employee.setPhoto(imagePath);
@@ -488,17 +503,17 @@ public class CreateEmployee extends javax.swing.JFrame {
 
     private void telephoneTxtFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_telephoneTxtFocusLost
         // TODO add your handling code here:
-        String phoneNumberText = telephoneTxt.getText();
+        String telephoneText = telephoneTxt.getText();
         
         if(
-            phoneNumberText.length() > 11 || phoneNumberText.length() < 10
+            telephoneText.length() > 11 || telephoneText.length() < 10
           ){
-            warningMessage("Please enter 11 digit phone number");
+            warningMessage("Please enter 11 digit telephone number");
             telephoneTxt.setText("");
         }
-        else if(!phoneNumberText.chars().allMatch(Character::isDigit)){
+        else if(!telephoneText.chars().allMatch(Character::isDigit)){
         
-            warningMessage("Mobile number can have digits only");
+            warningMessage("Telephone number can have digits only");
             telephoneTxt.setText("");
         }
     }//GEN-LAST:event_telephoneTxtFocusLost
@@ -617,7 +632,7 @@ public class CreateEmployee extends javax.swing.JFrame {
       
     }
 
-    private void viewEmployeeProfile(EmployeeInfo emp) {
+    private void displayEmployeeProfile(EmployeeInfo emp) {
         nameTxt.setText(emp.getName());
         employeeIdTxt.setText(Integer.toString(emp.getEmployeeId()));
         ageTxt.setText(Integer.toString(emp.getAge()));
@@ -625,7 +640,7 @@ public class CreateEmployee extends javax.swing.JFrame {
         levelTxt.select(1);
         teamInfoTxt.setText(emp.getTeamInfo());
         positionTitleTxt.setText(emp.getPositionTitle());
-        telephoneTxt.setText(Integer.toString(emp.gettelephone()));
+        telephoneTxt.setText(Integer.toString(emp.getTelephone()));
         emailTxt.setText(emp.getEmail());
         startDateTxt.setText(emp.getStartDate());
         
