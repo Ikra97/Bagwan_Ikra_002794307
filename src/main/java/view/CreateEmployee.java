@@ -676,6 +676,9 @@ public class CreateEmployee extends javax.swing.JFrame {
         telephoneTxt.setText(Integer.toString(emp.getTelephone()));
         emailTxt.setText(emp.getEmail());
         startDateTxt.setText(emp.getStartDate());
+//        BufferedImage myPicture = ImageIO.read(new File(emp.getPhoto()));
+//        showImage = new JLabel(new ImageIcon(myPicture));
+//        showImage.setSize(1000,1000);
         
     }
 }

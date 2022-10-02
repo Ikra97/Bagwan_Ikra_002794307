@@ -23,8 +23,8 @@ public class UpdateEmployeeAttribute {
         
         this.employee = employee;
         this.employeeArray = employeeArray;
-        matchedEmployee = getProfile();
         this.delete = delete;
+        matchedEmployee = getProfile();
         UpdateProfile();
     
     }
