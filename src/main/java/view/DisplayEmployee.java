@@ -14,21 +14,24 @@ import model.EmployeeInfo;
  *
  * @author ikrabagwan
  */
-public class Display extends javax.swing.JFrame {
+public class DisplayEmployee extends javax.swing.JFrame {
     
     String dataOfEmployee = "";
     
     ArrayList<EmployeeInfo> employeeArray;
+    String update = "";
     
 
     /**
      * Creates new form Display
      */
-    public Display() {
+    public DisplayEmployee(ArrayList<EmployeeInfo> employeeArray, String update) {
         initComponents();
         this.employeeArray = employeeArray;
+        this.update = update;
         setVisible(true);
     }
+
 
     /**
      * This method is called from within the constructor to initialize the form.

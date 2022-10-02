@@ -609,7 +609,8 @@ public class CreateEmployee extends javax.swing.JFrame {
             startDateTxt.setText("MM-DD-YYY");
         }
     }//GEN-LAST:event_startDateTxtFocusLost
-
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel age;
