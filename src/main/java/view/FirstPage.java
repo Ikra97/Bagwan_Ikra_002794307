@@ -37,6 +37,7 @@ public class FirstPage extends javax.swing.JFrame {
         updateButton = new javax.swing.JButton();
         deleteButton = new javax.swing.JButton();
         displayButton = new javax.swing.JButton();
+        displayAll = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(138, 182, 189));
@@ -67,7 +68,7 @@ public class FirstPage extends javax.swing.JFrame {
             }
         });
 
-        displayButton.setText("Display Employee");
+        displayButton.setText("Search Employee");
         displayButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 displayButtonMouseClicked(evt);
@@ -79,18 +80,32 @@ public class FirstPage extends javax.swing.JFrame {
             }
         });
 
+        displayAll.setText("Display All Employees");
+        displayAll.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                displayAllMouseClicked(evt);
+            }
+        });
+        displayAll.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                displayAllActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(253, 253, 253)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(updateButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(deleteButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(displayButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(createButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(274, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(displayAll)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(updateButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(deleteButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(displayButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(createButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(249, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -101,9 +116,11 @@ public class FirstPage extends javax.swing.JFrame {
                 .addComponent(displayButton)
                 .addGap(56, 56, 56)
                 .addComponent(updateButton)
-                .addGap(65, 65, 65)
+                .addGap(69, 69, 69)
                 .addComponent(deleteButton)
-                .addContainerGap(176, Short.MAX_VALUE))
+                .addGap(68, 68, 68)
+                .addComponent(displayAll)
+                .addContainerGap(81, Short.MAX_VALUE))
         );
 
         pack();
@@ -150,11 +167,21 @@ public class FirstPage extends javax.swing.JFrame {
         readEmp.setDefaultCloseOperation(1);
     }//GEN-LAST:event_deleteButtonMouseClicked
 
+    private void displayAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_displayAllActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_displayAllActionPerformed
+
+    private void displayAllMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_displayAllMouseClicked
+        // TODO add your handling code here:
+        new DisplayAllEmployees(this.employeeArray);
+    }//GEN-LAST:event_displayAllMouseClicked
+
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton createButton;
     private javax.swing.JButton deleteButton;
+    private javax.swing.JButton displayAll;
     private javax.swing.JButton displayButton;
     private javax.swing.JButton updateButton;
     // End of variables declaration//GEN-END:variables
