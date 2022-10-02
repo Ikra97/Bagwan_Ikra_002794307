@@ -18,6 +18,7 @@ public class UpdateEmployeeAttribute {
     EmployeeInfo matchedEmployee;
     Boolean delete;
     Boolean verifyDelete = false;
+    Boolean verifyUpdate = false;
     
     
     public UpdateEmployeeAttribute(EmployeeInfo employee, ArrayList<EmployeeInfo> employeeArray, Boolean delete){
@@ -67,9 +68,14 @@ public class UpdateEmployeeAttribute {
         this.matchedEmployee.setStartDate(this.employee.getStartDate());
         this.matchedEmployee.setPhoto(this.employee.getPhoto());
         
+        this.verifyUpdate = true;
         
     }
     public Boolean deleteStatus(){
         return this.verifyDelete;
+    }
+    
+    public Boolean updateStatus(){
+        return this.verifyUpdate;
     }
 }

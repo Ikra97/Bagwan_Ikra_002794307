@@ -435,21 +435,38 @@ public class CreateEmployee extends javax.swing.JFrame {
                 ){
         
         this.employeeArray.add(employee);
-        JOptionPane.showMessageDialog(this, "Employee added successfully",
+        JOptionPane.showMessageDialog(this, "Employee was added",
                                           "INFORMATION",
                                           JOptionPane.INFORMATION_MESSAGE);
         }
         else if(this.update.equals("update")){
-            UpdateEmployeeAttribute EmployeeAttributeUpdate = new UpdateEmployeeAttribute(employee, this.employeeArray, false);
+            UpdateEmployeeAttribute employeeAttributeUpdate = new UpdateEmployeeAttribute(employee, this.employeeArray, false);
+            
+            Boolean isUpdated = employeeAttributeUpdate.updateStatus();
+            
+            if(isUpdated){
+   
+            JOptionPane.showMessageDialog(this, "Employee was updated",
+                                          "INFORMATION",
+                                          JOptionPane.INFORMATION_MESSAGE);
+            
+            }else{
+                
+                // Code To popup an INFORMATION_MESSAGE Dialog.
+            JOptionPane.showMessageDialog(this, "Employee was not updated",
+                                          "ERROR",
+                                          JOptionPane.ERROR_MESSAGE);
+            
+            }
         }
         else if(this.update.equals("delete")){
             UpdateEmployeeAttribute EmployeeAttributeDelete =new UpdateEmployeeAttribute(employee, this.employeeArray, true);
             
-            Boolean isDeleted = updateEmployeeAttributeDelete.();
+            Boolean isDeleted = EmployeeAttributeDelete.deleteStatus();
             
             if(isDeleted){
    
-            JOptionPane.showMessageDialog(this, "Employee was deleted successfully",
+            JOptionPane.showMessageDialog(this, "Employee was deleted",
                                           "INFORMATION",
                                           JOptionPane.INFORMATION_MESSAGE);
             
