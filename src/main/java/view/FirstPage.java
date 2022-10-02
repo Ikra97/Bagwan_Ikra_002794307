@@ -1,6 +1,8 @@
 package view;
 
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.EmployeeInfo;
 
 /**
@@ -113,8 +115,13 @@ public class FirstPage extends javax.swing.JFrame {
     private void createButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_createButtonMouseClicked
         // TODO add your handling code here:
         CreateEmployee addEmp;
-        addEmp = new CreateEmployee(this.employeeArray,null, false);
-        addEmp.setDefaultCloseOperation(1);
+        try {
+            createEmp = new CreateEmployee(this.employeeArray, null, false, "create");
+        
+            createEmp.setDefaultCloseOperation(1);
+        } catch (IOException ex) {
+            Logger.getLogger(FirstPage.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
     }//GEN-LAST:event_createButtonMouseClicked
 

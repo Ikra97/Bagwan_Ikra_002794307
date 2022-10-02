@@ -1,11 +1,19 @@
 package view;
 
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.regex.Pattern;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import model.EmployeeInfo;
+import model.UpdateEmployeeAttributes;
 
 /**
  *
@@ -30,19 +38,31 @@ public class CreateEmployee extends javax.swing.JFrame {
     
     String specialCharacters = "!@#$%^&*()_+<:;,.'\"";
     
+    Boolean show = false;
+    String update = "";
+    
     public CreateEmployee(ArrayList<EmployeeInfo> employeeArray,
             EmployeeInfo emp, 
-            Boolean display
-    ){
+            Boolean show
+    )throws IOException{
         
         initComponents();
         this.employeeArray = employeeArray;
         setVisible(true);
         setSize(1000, 1000);
+        this.show = show;
+        this.update = update;
         
-        if(display){
+        if(this.show || this.update.equals("update")){
             
             displayEmployeeProfile(emp);
+        }
+        if(this.update.equals("delete")){
+            saveButton.setText("Delete");
+        }
+        
+        if(this.update.equals("update")){
+            saveButton.setText("Update");
         }
     }
 
@@ -409,7 +429,18 @@ public class CreateEmployee extends javax.swing.JFrame {
         employee.setStartDate(startDateTxt.getText());
         employee.setPhoto(imagePath);
         
-        this.employeeArray.add(employee);
+        if(!this.show && !this.update.equals("update") &&
+                !this.update.equals("delete")
+                ){
+        
+        this.employeeArray.create(employee);
+        }
+        else if(this.update.equals("update")){
+            new UpdateEmployeeAttributes(employee, this.employeeArray, false);
+        }
+        else if(this.update.equals("delete")){
+            new UpdateEmployeeAttributes(employee, this.employeeArray, true);
+        }
     }//GEN-LAST:event_saveButtonMouseClicked
 
     private void nameTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameTxtActionPerformed
