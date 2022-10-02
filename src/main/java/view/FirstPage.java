@@ -1,5 +1,6 @@
 package view;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -53,8 +54,18 @@ public class FirstPage extends javax.swing.JFrame {
         });
 
         updateButton.setText("Update Employee");
+        updateButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                updateButtonMouseClicked(evt);
+            }
+        });
 
         deleteButton.setText("Delete Employee");
+        deleteButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                deleteButtonMouseClicked(evt);
+            }
+        });
 
         displayButton.setText("Display Employee");
         displayButton.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -106,7 +117,7 @@ public class FirstPage extends javax.swing.JFrame {
         // TODO add your handling code here:
         CreateEmployee createEmp;
         try {
-            createEmp = new CreateEmployee(this.employeeArray, null, false, "create");
+            createEmp = new CreateEmployee(this.employeeArray, null, false, "add");
         
             createEmp.setDefaultCloseOperation(1);
         } catch (IOException ex) {
@@ -126,6 +137,18 @@ public class FirstPage extends javax.swing.JFrame {
         DisplayEmployee readEmp = new DisplayEmployee(employeeArray, "display");
         readEmp.setDefaultCloseOperation(1);
     }//GEN-LAST:event_displayButtonMouseClicked
+
+    private void updateButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updateButtonMouseClicked
+        // TODO add your handling code here:
+        DisplayEmployee readEmp = new DisplayEmployee(employeeArray, "update");
+        readEmp.setDefaultCloseOperation(1);
+    }//GEN-LAST:event_updateButtonMouseClicked
+
+    private void deleteButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteButtonMouseClicked
+        // TODO add your handling code here:
+        DisplayEmployee readEmp = new DisplayEmployee(employeeArray, "delete");
+        readEmp.setDefaultCloseOperation(1);
+    }//GEN-LAST:event_deleteButtonMouseClicked
 
 
 

@@ -13,7 +13,7 @@ import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import model.EmployeeInfo;
-import model.UpdateEmployeeAttributes;
+import model.UpdateEmployeeAttribute;
 
 /**
  *
@@ -43,7 +43,8 @@ public class CreateEmployee extends javax.swing.JFrame {
     
     public CreateEmployee(ArrayList<EmployeeInfo> employeeArray,
             EmployeeInfo emp, 
-            Boolean show
+            Boolean show,
+            String update
     )throws IOException{
         
         initComponents();
@@ -433,13 +434,13 @@ public class CreateEmployee extends javax.swing.JFrame {
                 !this.update.equals("delete")
                 ){
         
-        this.employeeArray.create(employee);
+        this.employeeArray.add(employee);
         }
         else if(this.update.equals("update")){
-            new UpdateEmployeeAttributes(employee, this.employeeArray, false);
+            new UpdateEmployeeAttribute(employee, this.employeeArray, false);
         }
         else if(this.update.equals("delete")){
-            new UpdateEmployeeAttributes(employee, this.employeeArray, true);
+            new UpdateEmployeeAttribute(employee, this.employeeArray, true);
         }
     }//GEN-LAST:event_saveButtonMouseClicked
 
