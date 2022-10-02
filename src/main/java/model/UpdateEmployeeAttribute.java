@@ -17,6 +17,7 @@ public class UpdateEmployeeAttribute {
     
     EmployeeInfo matchedEmployee;
     Boolean delete;
+    Boolean verifyDelete = false;
     
     
     public UpdateEmployeeAttribute(EmployeeInfo employee, ArrayList<EmployeeInfo> employeeArray, Boolean delete){
@@ -25,7 +26,9 @@ public class UpdateEmployeeAttribute {
         this.employeeArray = employeeArray;
         this.delete = delete;
         matchedEmployee = getProfile();
-        UpdateProfile();
+        if(this.matchedEmployee != null){
+            UpdateProfile();
+        }
     
     }
     
@@ -40,6 +43,7 @@ public class UpdateEmployeeAttribute {
                 if(this.delete){
                 
                     employeeArray.remove(i);
+                    this.verifyDelete = true;
                     return null;
                 }else{
                     return emp;
@@ -65,5 +69,7 @@ public class UpdateEmployeeAttribute {
         
         
     }
-    
+    public Boolean deleteStatus(){
+        return this.verifyDelete;
+    }
 }

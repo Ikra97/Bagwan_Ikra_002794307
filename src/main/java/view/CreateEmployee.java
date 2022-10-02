@@ -435,13 +435,35 @@ public class CreateEmployee extends javax.swing.JFrame {
                 ){
         
         this.employeeArray.add(employee);
+        JOptionPane.showMessageDialog(this, "Employee added successfully",
+                                          "INFORMATION",
+                                          JOptionPane.INFORMATION_MESSAGE);
         }
         else if(this.update.equals("update")){
-            new UpdateEmployeeAttribute(employee, this.employeeArray, false);
+            UpdateEmployeeAttribute EmployeeAttributeUpdate = new UpdateEmployeeAttribute(employee, this.employeeArray, false);
         }
         else if(this.update.equals("delete")){
-            new UpdateEmployeeAttribute(employee, this.employeeArray, true);
+            UpdateEmployeeAttribute EmployeeAttributeDelete =new UpdateEmployeeAttribute(employee, this.employeeArray, true);
+            
+            Boolean isDeleted = updateEmployeeAttributeDelete.();
+            
+            if(isDeleted){
+   
+            JOptionPane.showMessageDialog(this, "Employee was deleted successfully",
+                                          "INFORMATION",
+                                          JOptionPane.INFORMATION_MESSAGE);
+            
+            }else{
+                
+                // Code To popup an INFORMATION_MESSAGE Dialog.
+            JOptionPane.showMessageDialog(this, "Employee was not deleted",
+                                          "ERROR",
+                                          JOptionPane.ERROR_MESSAGE);
+            
+            }
         }
+
+        this.dispose();
     }//GEN-LAST:event_saveButtonMouseClicked
 
     private void nameTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameTxtActionPerformed
