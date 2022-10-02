@@ -26,7 +26,7 @@ public class Employee {
         employee.setTelephone(1542367890);
         employee.setEmail("ib@gmailcom");
         employee.setStartDate("12-20-2022");
-        employee.setPhoto("https://tinyjpg.com/images/social/website.jpg");
+        employee.setPhoto("/Users/ikrabagwan/downloads/cat.png");
         employeeArray.add(employee);
         
         FirstPage firstpage = new FirstPage(employeeArray);
