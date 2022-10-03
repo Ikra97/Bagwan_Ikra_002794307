@@ -725,7 +725,7 @@ public class CreateEmployee extends javax.swing.JFrame {
 
     private void startDateTxtFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_startDateTxtFocusLost
         // TODO add your handling code here:
-        if(startDateTxt.getText().length() > 0){
+        if(startDateTxt.getText().length() > 0 && !startDateTxt.getText().equals("MM-DD-YYYY")){
         String dateText = startDateTxt.getText();
         String regexPattern = "^\\d{2}-\\d{2}-\\d{4}$";
         Boolean datePattern;
@@ -808,7 +808,7 @@ public class CreateEmployee extends javax.swing.JFrame {
                 .getScaledInstance(200, 200, Image.SCALE_DEFAULT)));
         employeephoto.setBounds(400, 250, 200, 200);
         c.add(employeephoto);
-        imageName = emp.getPhoto();
+        imagePath = emp.getPhoto();
         
         
     }
@@ -832,8 +832,9 @@ public class CreateEmployee extends javax.swing.JFrame {
                 )&&
                 teamInfoTxt.getText().length() > 0 &&
                 startDateTxt.getText().length() > 0 &&
+                !startDateTxt.getText().equals("MM-DD-YYYY") &&
                 positionTitleTxt.getText().length() > 0 &&
-                imageName.length() > 0 &&
+                imagePath.length() > 0 &&
                 telephoneTxt.getText().length()> 0
                 ){
         
