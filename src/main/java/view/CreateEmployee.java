@@ -372,11 +372,12 @@ public class CreateEmployee extends javax.swing.JFrame {
                                     .addComponent(positionTitleTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(positiontitle))))
                         .addGap(29, 29, 29)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(teamInfo)
-                            .addComponent(teamInfoTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(level)
-                            .addComponent(levelTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(levelTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(teamInfo)
+                                .addComponent(teamInfoTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(level))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(95, 95, 95)
                         .addComponent(employeephoto)))
@@ -463,7 +464,7 @@ public class CreateEmployee extends javax.swing.JFrame {
     private void saveButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_saveButtonMouseClicked
         // TODO add your handling code here:
         
-        if(verifyFormFields()){
+        if(validateform()){
 
             employee.setName(nameTxt.getText());
             employee.setEmployeeId( Integer.parseInt(employeeIdTxt.getText()));
@@ -480,11 +481,14 @@ public class CreateEmployee extends javax.swing.JFrame {
             if(!this.show && !this.update.equals("update") &&
                     !this.update.equals("delete")
                     ){
-
+                
+            if(UniqueData()){
+                 
             this.employeeArray.add(employee);
             JOptionPane.showMessageDialog(this, "Employee was added",
                                               "INFORMATION",
                                               JOptionPane.INFORMATION_MESSAGE);
+            }
             }
             else if(this.update.equals("update")){
                 UpdateEmployeeAttribute employeeAttributeUpdate = new UpdateEmployeeAttribute(employee, this.employeeArray, false);
@@ -807,7 +811,7 @@ public class CreateEmployee extends javax.swing.JFrame {
         c.add(employeephoto);
         
     }
-    public Boolean verifyFormFields(){
+    public Boolean validateform(){
         
         if(
                 nameTxt.getText().length() > 0 &&
@@ -836,4 +840,52 @@ public class CreateEmployee extends javax.swing.JFrame {
             return false;
         }
     } 
+    
+    public Boolean UniqueData(){
+    
+        Boolean emailUnique = true;
+        Boolean telephoneUnique = true;
+        Boolean employeeIdUnique = true;
+        
+        String message = "";
+        
+        for(int i = 0; i < this.employeeArray.size(); i++){
+        
+            EmployeeInfo emp = this.employeeArray.get(i);
+            
+            if(emp.getEmail().equals(emailTxt.getText())){
+                    emailUnique = false;
+            }
+            if(String.valueOf(emp.getEmployeeId()).equals(employeeIdTxt.getText())){
+                    employeeIdUnique = false;
+            }
+            if(String.valueOf(emp.getTelephone()).equals(telephoneTxt.getText())){
+                    telephoneUnique = false;
+            }
+            
+        }
+        
+        if(emailUnique && telephoneUnique && employeeIdUnique){
+            return true;
+        }
+        
+        if(!emailUnique){
+            emailTxt.setText("");
+            message+="Email, ";
+        }
+        if(!employeeIdUnique){
+            employeeIdTxt.setText("");
+            message+="Employee Id, ";
+        }
+        if(!telephoneUnique){
+            telephoneTxt.setText("");
+            message+="Telephone, ";
+        }
+        
+        message+=" taken already";
+        
+        warningMessage(message);
+        
+        return false;
+    }
 }
