@@ -29,6 +29,21 @@ public class Employee {
         employee.setPhoto("/Users/ikrabagwan/downloads/cat.png");
         employeeArray.add(employee);
         
+        EmployeeInfo employee1 = new EmployeeInfo();
+        
+        employee1.setName("GARY");
+        employee1.setEmployeeId( 7625756);
+        employee1.setAge(24);
+        employee1.setGender("Male");
+        employee1.setLevel("Novice");
+        employee1.setTeamInfo("xyz");
+        employee1.setPositionTitle("DA");
+        employee1.setTelephone(1542367654);
+        employee1.setEmail("ga@gmailcom");
+        employee1.setStartDate("12-20-2002");
+        employee1.setPhoto("/Users/ikrabagwan/downloads/cat.png");
+        employeeArray.add(employee1);
+        
         FirstPage firstpage = new FirstPage(employeeArray);
         firstpage.setDefaultCloseOperation(3);
     }

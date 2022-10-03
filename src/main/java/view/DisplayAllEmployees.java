@@ -18,8 +18,8 @@ public class DisplayAllEmployees extends javax.swing.JFrame {
      */
     ArrayList<EmployeeInfo> employeeArray;
     public DisplayAllEmployees(ArrayList<EmployeeInfo> employeeArray) {
-        initComponents();
         this.employeeArray = employeeArray;
+        initComponents();
         setVisible(true);
     }
 
@@ -34,35 +34,31 @@ public class DisplayAllEmployees extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        employeeinformation = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("Employee Information ");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
+        employeeinformation.setModel(new javax.swing.table.DefaultTableModel(
+            employeeTableInfo(),
+
             new String [] {
                 "Name", "EmployeeId", "StartDate", "Level" , "Age" , "Gender" ,
-                "Email" , "Telephone" , "PositionTitle" , "TeamInfo" ,"Photo" ,
+                "Email" , "Telephone" , "PositionTitle" , "TeamInfo"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(employeeinformation);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(207, 207, 207)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 567, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(189, 189, 189)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -76,11 +72,39 @@ public class DisplayAllEmployees extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public Object[][] employeeTableInfo(){
+        
+        String info[][] = new String[this.employeeArray.size()][10];
+        
+        for(int i = 0; i < this.employeeArray.size(); i++){
+        EmployeeInfo emp = this.employeeArray.get(i);
+        String empData[] = new String[10];
+            empData[0] = emp.getName();
+            empData[1] = String.valueOf(emp.getEmployeeId());
+            empData[2] = String.valueOf(emp.getStartDate());
+            empData[3] = emp.getLevel();
+            empData[4] = String.valueOf(emp.getAge());
+            empData[5] = emp.getGender();
+            empData[6] = emp.getEmail();
+            empData[7] = String.valueOf(emp.getTelephone());
+            empData[8] = emp.getPositionTitle();
+            empData[9] = emp.getTeamInfo();
+            
+            
+            info[i] = empData;
+        
+        }
+        
+//        "Name", "EmployeeId", "StartDate", "Level" , "Age" , "Gender" ,
+        //"Email" , "Telephone" , "PositionTitle" , "TeamInfo" ,"Photo" ,
     
 
+        return info;
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable employeeinformation;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

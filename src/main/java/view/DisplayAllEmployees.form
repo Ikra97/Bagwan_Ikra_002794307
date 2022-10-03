@@ -23,12 +23,12 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
-              <EmptySpace min="-2" pref="207" max="-2" attributes="0"/>
-              <Component id="jLabel1" min="-2" pref="140" max="-2" attributes="0"/>
+          <Component id="jScrollPane1" alignment="0" pref="567" max="32767" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="189" max="-2" attributes="0"/>
+              <Component id="jLabel1" min="-2" pref="166" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
-          <Component id="jScrollPane1" alignment="0" pref="567" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -55,10 +55,10 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JTable" name="jTable1">
+        <Component class="javax.swing.JTable" name="employeeinformation">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-              <Connection code="new javax.swing.table.DefaultTableModel(&#xa;    new Object [][] {&#xa;        {null, null, null, null},&#xa;        {null, null, null, null},&#xa;        {null, null, null, null},&#xa;        {null, null, null, null}&#xa;    },&#xa;    new String [] {&#xa;        &quot;Name&quot;, &quot;EmployeeId&quot;, &quot;StartDate&quot;, &quot;Level&quot; , &quot;Age&quot; , &quot;Gender&quot; ,&#xa;         &quot;Email&quot; , &quot;Telephone&quot; , &quot;PositionTitle&quot; , &quot;TeamInfo&quot; ,&quot;Photo&quot; , &#xa;    }&#xa;)" type="code"/>
+              <Connection code="new javax.swing.table.DefaultTableModel(&#xa;    employeeTableInfo(),&#xa;&#xa;    new String [] {&#xa;        &quot;Name&quot;, &quot;EmployeeId&quot;, &quot;StartDate&quot;, &quot;Level&quot; , &quot;Age&quot; , &quot;Gender&quot; ,&#xa;        &quot;Email&quot; , &quot;Telephone&quot; , &quot;PositionTitle&quot; , &quot;TeamInfo&quot;&#xa;    }&#xa;)" type="code"/>
             </Property>
           </Properties>
         </Component>

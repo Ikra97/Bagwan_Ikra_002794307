@@ -463,69 +463,76 @@ public class CreateEmployee extends javax.swing.JFrame {
     private void saveButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_saveButtonMouseClicked
         // TODO add your handling code here:
         
-        employee.setName(nameTxt.getText());
-        employee.setEmployeeId( Integer.parseInt(employeeIdTxt.getText()));
-        employee.setAge(Integer.parseInt(ageTxt.getText()));
-        employee.setGender(genderTxt.getSelectedItem());
-        employee.setLevel(levelTxt.getSelectedItem());
-        employee.setTeamInfo(teamInfoTxt.getText());
-        employee.setPositionTitle(positionTitleTxt.getText());
-        employee.setTelephone(Integer.parseInt(telephoneTxt.getText()));
-        employee.setEmail(emailTxt.getText());
-        employee.setStartDate(startDateTxt.getText());
-        employee.setPhoto(imagePath);
-        
-        if(!this.show && !this.update.equals("update") &&
-                !this.update.equals("delete")
-                ){
-        
-        this.employeeArray.add(employee);
-        JOptionPane.showMessageDialog(this, "Employee was added",
-                                          "INFORMATION",
-                                          JOptionPane.INFORMATION_MESSAGE);
-        }
-        else if(this.update.equals("update")){
-            UpdateEmployeeAttribute employeeAttributeUpdate = new UpdateEmployeeAttribute(employee, this.employeeArray, false);
-            
-            Boolean isUpdated = employeeAttributeUpdate.updateStatus();
-            
-            if(isUpdated){
-   
-            JOptionPane.showMessageDialog(this, "Employee was updated",
-                                          "INFORMATION",
-                                          JOptionPane.INFORMATION_MESSAGE);
-            
-            }else{
-                
-                // Code To popup an INFORMATION_MESSAGE Dialog.
-            JOptionPane.showMessageDialog(this, "Employee was not updated",
-                                          "ERROR",
-                                          JOptionPane.ERROR_MESSAGE);
-            
-            }
-        }
-        else if(this.update.equals("delete")){
-            UpdateEmployeeAttribute EmployeeAttributeDelete =new UpdateEmployeeAttribute(employee, this.employeeArray, true);
-            
-            Boolean isDeleted = EmployeeAttributeDelete.deleteStatus();
-            
-            if(isDeleted){
-   
-            JOptionPane.showMessageDialog(this, "Employee was deleted",
-                                          "INFORMATION",
-                                          JOptionPane.INFORMATION_MESSAGE);
-            
-            }else{
-                
-                // Code To popup an INFORMATION_MESSAGE Dialog.
-            JOptionPane.showMessageDialog(this, "Employee was not deleted",
-                                          "ERROR",
-                                          JOptionPane.ERROR_MESSAGE);
-            
-            }
-        }
+        if(verifyFormFields()){
 
-        this.dispose();
+            employee.setName(nameTxt.getText());
+            employee.setEmployeeId( Integer.parseInt(employeeIdTxt.getText()));
+            employee.setAge(Integer.parseInt(ageTxt.getText()));
+            employee.setGender(genderTxt.getSelectedItem());
+            employee.setLevel(levelTxt.getSelectedItem());
+            employee.setTeamInfo(teamInfoTxt.getText());
+            employee.setPositionTitle(positionTitleTxt.getText());
+            employee.setTelephone(Integer.parseInt(telephoneTxt.getText()));
+            employee.setEmail(emailTxt.getText());
+            employee.setStartDate(startDateTxt.getText());
+            employee.setPhoto(imagePath);
+
+            if(!this.show && !this.update.equals("update") &&
+                    !this.update.equals("delete")
+                    ){
+
+            this.employeeArray.add(employee);
+            JOptionPane.showMessageDialog(this, "Employee was added",
+                                              "INFORMATION",
+                                              JOptionPane.INFORMATION_MESSAGE);
+            }
+            else if(this.update.equals("update")){
+                UpdateEmployeeAttribute employeeAttributeUpdate = new UpdateEmployeeAttribute(employee, this.employeeArray, false);
+
+                Boolean isUpdated = employeeAttributeUpdate.updateStatus();
+
+                if(isUpdated){
+
+                JOptionPane.showMessageDialog(this, "Employee was updated",
+                                              "INFORMATION",
+                                              JOptionPane.INFORMATION_MESSAGE);
+
+                }else{
+
+                    // Code To popup an INFORMATION_MESSAGE Dialog.
+                JOptionPane.showMessageDialog(this, "Employee was not updated",
+                                              "ERROR",
+                                              JOptionPane.ERROR_MESSAGE);
+
+                }
+            }
+            else if(this.update.equals("delete")){
+                UpdateEmployeeAttribute EmployeeAttributeDelete =new UpdateEmployeeAttribute(employee, this.employeeArray, true);
+
+                Boolean isDeleted = EmployeeAttributeDelete.deleteStatus();
+
+                if(isDeleted){
+
+                JOptionPane.showMessageDialog(this, "Employee was deleted",
+                                              "INFORMATION",
+                                              JOptionPane.INFORMATION_MESSAGE);
+
+                }else{
+
+                    // Code To popup an INFORMATION_MESSAGE Dialog.
+                JOptionPane.showMessageDialog(this, "Employee was not deleted",
+                                              "ERROR",
+                                              JOptionPane.ERROR_MESSAGE);
+
+                }
+            }
+
+            this.dispose();
+        }
+        else{
+        
+        
+        }
     }//GEN-LAST:event_saveButtonMouseClicked
 
     private void nameTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameTxtActionPerformed
@@ -534,6 +541,7 @@ public class CreateEmployee extends javax.swing.JFrame {
 
     private void nameTxtFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nameTxtFocusLost
         // TODO add your handling code here:
+        if(nameTxt.getText().length() > 0){
         if(
             nameTxt.getText().length() > 10 ||
             nameTxt.getText().chars().anyMatch(Character::isDigit)
@@ -549,12 +557,15 @@ public class CreateEmployee extends javax.swing.JFrame {
             warningMessage("Name can have only upto 10 Characters");
             nameTxt.setText("");
          }
+        }
         
     }//GEN-LAST:event_nameTxtFocusLost
 
     private void employeeIdTxtFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_employeeIdTxtFocusLost
         // TODO add your handling code here:
         String idText = employeeIdTxt.getText();
+        
+        if(employeeIdTxt.getText().length() > 0){
         
         if( idText.length() > 10){
             
@@ -566,27 +577,21 @@ public class CreateEmployee extends javax.swing.JFrame {
             warningMessage("Employee Id can have upto 10 numbers only");
             employeeIdTxt.setText("");
         }
+        }
     }//GEN-LAST:event_employeeIdTxtFocusLost
 
     private void genderTxtFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_genderTxtFocusLost
         // TODO add your handling code here:
-        String ageText = ageTxt.getText();
         
-        if(!ageText.matches("[0-9]+")){
-            
-            warningMessage("Age can be numbers only");
-            employeeIdTxt.setText("");
-        }
-        else if(Integer.parseInt(ageText) > 100){
-            warningMessage("Please enter age less than 100");
-            employeeIdTxt.setText("");
-        }
     }//GEN-LAST:event_genderTxtFocusLost
 
     private void teamInfoTxtFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_teamInfoTxtFocusLost
         // TODO add your handling code here:
+        
+        if(teamInfoTxt.getText().length() > 0){
         if(
             teamInfoTxt.getText().length() > 10
+                
                 
           ){
             warningMessage("Team Info can have only up to 10 Characters");
@@ -599,10 +604,17 @@ public class CreateEmployee extends javax.swing.JFrame {
             warningMessage("Team Info cannot have special characters");
             teamInfoTxt.setText("");
          }
+         }
     }//GEN-LAST:event_teamInfoTxtFocusLost
 
     private void positionTitleTxtFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_positionTitleTxtFocusLost
         // TODO add your handling code here:
+        
+
+        
+        if(positionTitleTxt.getText().length() > 0){
+            
+        }
         if(
             positionTitleTxt.getText().length() > 10
           ){
@@ -615,10 +627,15 @@ public class CreateEmployee extends javax.swing.JFrame {
             warningMessage("Position Title cannot have special characters");
             positionTitleTxt.setText("");
          }
+         
     }//GEN-LAST:event_positionTitleTxtFocusLost
 
     private void telephoneTxtFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_telephoneTxtFocusLost
         // TODO add your handling code here:
+        
+        if(telephoneTxt.getText().length() > 0){
+            
+        
         String telephoneText = telephoneTxt.getText();
         
         if(
@@ -632,10 +649,13 @@ public class CreateEmployee extends javax.swing.JFrame {
             warningMessage("Telephone number can have digits only");
             telephoneTxt.setText("");
         }
+        }
     }//GEN-LAST:event_telephoneTxtFocusLost
 
     private void emailTxtFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_emailTxtFocusLost
         // TODO add your handling code here:
+        
+        if(emailTxt.getText().length() > 0){
         String emailText = emailTxt.getText();
         String regexPattern = "^(.+)@(\\S+)$";
         Boolean emailPattern;
@@ -644,6 +664,7 @@ public class CreateEmployee extends javax.swing.JFrame {
         if(emailText.length() > 0 && !emailPattern){
             warningMessage("Please enter valid email address");
             emailTxt.setText("");
+        }
         }
     }
         
@@ -673,6 +694,22 @@ public class CreateEmployee extends javax.swing.JFrame {
 
     private void ageTxtFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ageTxtFocusLost
         // TODO add your handling code here:
+        if(ageTxt.getText().length() > 0){
+        String ageText = ageTxt.getText();
+        
+        if(ageText.length() > 0){
+        
+            if(!ageText.matches("[0-9]+")){
+
+                warningMessage("Age can be numbers only");
+                employeeIdTxt.setText("");
+            }
+            else if(Integer.parseInt(ageText) > 100){
+                warningMessage("Please enter age less than 100");
+                employeeIdTxt.setText("");
+            }
+        }
+        }
     }//GEN-LAST:event_ageTxtFocusLost
 
     private void levelTxtFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_levelTxtFocusLost
@@ -685,6 +722,7 @@ public class CreateEmployee extends javax.swing.JFrame {
 
     private void startDateTxtFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_startDateTxtFocusLost
         // TODO add your handling code here:
+        if(startDateTxt.getText().length() > 0){
         String dateText = startDateTxt.getText();
         String regexPattern = "^\\d{2}-\\d{2}-\\d{4}$";
         Boolean datePattern;
@@ -692,6 +730,7 @@ public class CreateEmployee extends javax.swing.JFrame {
         if(!datePattern){
             warningMessage("Please enter in MM-DD-YYY format");
             startDateTxt.setText("MM-DD-YYY");
+        }
         }
     }//GEN-LAST:event_startDateTxtFocusLost
     
@@ -768,4 +807,33 @@ public class CreateEmployee extends javax.swing.JFrame {
         c.add(employeephoto);
         
     }
+    public Boolean verifyFormFields(){
+        
+        if(
+                nameTxt.getText().length() > 0 &&
+                employeeIdTxt.getText().length() > 0 &&
+                ageTxt.getText().length() > 0 &&
+                emailTxt.getText().length() > 0 &&
+                (
+                    genderTxt.getSelectedItem().equals("Male") ||
+                    genderTxt.getSelectedItem().equals("Female")
+                ) &&
+                (
+                    levelTxt.getSelectedItem().equals("Novice") ||
+                    levelTxt.getSelectedItem().equals("Intermediate") ||
+                    levelTxt.getSelectedItem().equals("Advanced")
+                )&&
+                teamInfoTxt.getText().length() > 0 &&
+                startDateTxt.getText().length() > 0 &&
+                positionTitleTxt.getText().length() > 0 &&
+                imageName.length() > 0 &&
+                telephoneTxt.getText().length()> 0
+                ){
+        
+        return true;
+        }
+        else{
+            return false;
+        }
+    } 
 }
