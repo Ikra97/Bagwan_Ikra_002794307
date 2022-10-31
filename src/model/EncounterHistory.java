@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Ikrauraj*/
+ * @author Ikra*/
 public class EncounterHistory {
     
     private ArrayList<Encounter> patientEncounterHistory = new ArrayList<>();

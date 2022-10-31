@@ -17,7 +17,7 @@ import model.HospitalDirectory;
 
 /**
  *
- * @author Ikrauraj*/
+ * @author Ikra*/
 public class HospitalUpdateHospital extends javax.swing.JPanel {
 
     /**

@@ -17,7 +17,7 @@ import userinterface.MainJFrame;
 
 /**
  *
- * @author Ikrauraj*/
+ * @author Ikra*/
 public class DoctorJFrame extends javax.swing.JFrame {
 
     /**

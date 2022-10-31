@@ -27,7 +27,7 @@ import userinterface.SystemWorkArea.Patient.*;
 
 /**
  *
- * @author Ikrauraj*/
+ * @author Ikra*/
 public class SystemCreateDoctor extends javax.swing.JPanel {
 
     /**

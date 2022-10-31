@@ -10,7 +10,7 @@ import java.util.Map;
 
 /**
  *
- * @author Ikrauraj*/
+ * @author Ikra*/
 public class Encounter {
     
     private int encounterId ;

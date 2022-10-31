@@ -13,7 +13,7 @@ import userinterface.SystemWorkArea.Patient.SystemViewPatient;
 
 /**
  *
- * @author Ikrauraj*/
+ * @author Ikra*/
 public class SystemPatientWorkPanel extends javax.swing.JPanel {
 
     PersonDirectory personDirectory;

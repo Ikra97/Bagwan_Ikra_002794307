@@ -15,7 +15,7 @@ import model.PersonDirectory;
 
 /**
  *
- * @author Ikrauraj*/
+ * @author Ikra*/
 public class SystemHospitalWorkPanel extends javax.swing.JPanel {
 
 //    PatientDirectory patientDirectory;

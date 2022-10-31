@@ -24,7 +24,7 @@ import model.VitalSigns;
 
 /**
  *
- * @author Ikrauraj*/
+ * @author Ikra*/
 public class SystemCreateEncounter extends javax.swing.JPanel {
 
     /**

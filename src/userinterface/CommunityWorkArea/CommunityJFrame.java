@@ -13,7 +13,7 @@ import userinterface.MainJFrame;
 
 /**
  *
- * @author Ikrauraj*/
+ * @author Ikra*/
 public class CommunityJFrame extends javax.swing.JFrame {
 
     /**

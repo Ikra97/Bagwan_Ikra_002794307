@@ -28,7 +28,7 @@ import userinterface.SystemWorkArea.Patient.*;
 
 /**
  *
- * @author Ikrauraj*/
+ * @author Ikra*/
 public class HospitalUpdateDoctor extends javax.swing.JPanel {
 
     /**

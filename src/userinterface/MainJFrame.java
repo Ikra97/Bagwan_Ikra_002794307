@@ -25,7 +25,7 @@ import userinterface.SystemWorkArea.SystemJFrame;
 
 /**
  *
- * @author Ikrauraj*/
+ * @author Ikra*/
 public class MainJFrame extends javax.swing.JFrame {
 
     /**

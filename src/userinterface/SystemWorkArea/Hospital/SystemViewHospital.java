@@ -16,7 +16,7 @@ import userinterface.SystemWorkArea.Patient.*;
 
 /**
  *
- * @author Ikrauraj*/
+ * @author Ikra*/
 public class SystemViewHospital extends javax.swing.JPanel {
 
     /**

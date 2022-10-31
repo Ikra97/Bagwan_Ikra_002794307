@@ -14,7 +14,7 @@ import model.Hospital;
 
 /**
  *
- * @author Ikrauraj*/
+ * @author Ikra*/
 public class ViewCommunity extends javax.swing.JPanel {
 
     /**

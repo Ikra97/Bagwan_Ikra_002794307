@@ -22,7 +22,7 @@ import model.PersonDirectory;
 
 /**
  *
- * @author Ikrauraj*/
+ * @author Ikra*/
 public class HospitalCreatePatient extends javax.swing.JPanel {
 
     /**

@@ -9,7 +9,7 @@ import model.PersonDirectory;
 
 /**
  *
- * @author Ikrauraj*/
+ * @author Ikra*/
 public class SystemDoctorWorkPanel extends javax.swing.JPanel {
 
     PersonDirectory personDirectory;

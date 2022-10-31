@@ -11,7 +11,7 @@ import userinterface.SystemWorkArea.Doctor.*;
 
 /**
  *
- * @author Ikrauraj*/
+ * @author Ikra*/
 public class HospitalDoctorWorkPanel extends javax.swing.JPanel {
 
     PersonDirectory personDirectory;

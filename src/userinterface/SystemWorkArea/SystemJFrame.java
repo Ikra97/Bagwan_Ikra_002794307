@@ -19,7 +19,7 @@ import userinterface.SystemWorkArea.Patient.SystemPatientWorkPanel;
 
 /**
  *
- * @author Ikrauraj*/
+ * @author Ikra*/
 public class SystemJFrame extends javax.swing.JFrame {
 
     /**

@@ -22,7 +22,7 @@ import model.VitalSigns;
 
 /**
  *
- * @author Ikrauraj*/
+ * @author Ikra*/
 public class HospitalViewEncounter extends javax.swing.JPanel {
 
     /**

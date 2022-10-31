@@ -21,7 +21,7 @@ import model.PersonDirectory;
 
 /**
  *
- * @author Ikrauraj*/
+ * @author Ikra*/
 public class SystemCreatePatient extends javax.swing.JPanel {
 
     /**

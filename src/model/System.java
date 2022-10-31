@@ -6,7 +6,7 @@ package model;
 
 /**
  *
- * @author Ikrauraj*/
+ * @author Ikra*/
 public class System {
     private City city;
     private PersonDirectory personDirectory;

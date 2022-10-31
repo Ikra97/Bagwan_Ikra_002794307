@@ -11,7 +11,7 @@ import java.util.Set;
 
 /**
  *
- * @author Ikrauraj*/
+ * @author Ikra*/
 public class HospitalDirectory {
     
     private Set<Hospital> hospitals = new HashSet<>();

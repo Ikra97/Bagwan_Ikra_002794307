@@ -12,7 +12,7 @@ import java.util.Set;
 
 /**
  *
- * @author Ikrauraj*/
+ * @author Ikra*/
 public class DoctorDirectory {
     
     private Set<Doctor> doctors = new HashSet<>();

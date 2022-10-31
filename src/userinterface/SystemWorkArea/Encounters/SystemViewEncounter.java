@@ -21,7 +21,7 @@ import model.VitalSigns;
 
 /**
  *
- * @author Ikrauraj*/
+ * @author Ikra*/
 public class SystemViewEncounter extends javax.swing.JPanel {
 
     /**

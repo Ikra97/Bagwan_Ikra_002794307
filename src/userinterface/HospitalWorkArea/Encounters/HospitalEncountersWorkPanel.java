@@ -16,7 +16,7 @@ import userinterface.HospitalWorkArea.Encounters.HospitalViewEncounter;
 
 /**
  *
- * @author Ikrauraj*/
+ * @author Ikra*/
 public class HospitalEncountersWorkPanel extends javax.swing.JPanel {
 
     PatientDirectory patientDirectory;

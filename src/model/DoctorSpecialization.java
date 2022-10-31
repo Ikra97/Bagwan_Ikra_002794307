@@ -6,7 +6,7 @@ package model;
 
 /**
  *
- * @author Ikrauraj*/
+ * @author Ikra*/
 public enum DoctorSpecialization {
     AllergyAndImmunology,
     Dermatology,

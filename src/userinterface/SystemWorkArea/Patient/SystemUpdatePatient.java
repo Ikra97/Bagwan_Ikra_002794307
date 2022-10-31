@@ -20,7 +20,7 @@ import model.PersonDirectory;
 
 /**
  *
- * @author Ikrauraj*/
+ * @author Ikra*/
 public class SystemUpdatePatient extends javax.swing.JPanel {
 
     /**

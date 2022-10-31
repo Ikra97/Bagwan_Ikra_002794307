@@ -10,7 +10,7 @@ import model.PatientDirectory;
 
 /**
  *
- * @author Ikrauraj*/
+ * @author Ikra*/
 public class DoctorEncountersWorkPanel extends javax.swing.JPanel {
 
     PatientDirectory patientDirectory;

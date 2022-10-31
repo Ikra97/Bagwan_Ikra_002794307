@@ -13,7 +13,7 @@ import model.PersonDirectory;
 
 /**
  *
- * @author Ikrauraj*/
+ * @author Ikra*/
 public class SystemEncountersWorkPanel extends javax.swing.JPanel {
 
     PatientDirectory patientDirectory;

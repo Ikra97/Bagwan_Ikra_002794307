@@ -9,7 +9,7 @@ import java.util.Map;
 
 /**
  *
- * @author Ikrauraj*/
+ * @author Ikra*/
 public class Patient extends Person{
 
     private int patientId;

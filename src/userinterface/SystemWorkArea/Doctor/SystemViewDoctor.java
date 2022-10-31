@@ -17,7 +17,7 @@ import userinterface.SystemWorkArea.Patient.*;
 
 /**
  *
- * @author Ikrauraj*/
+ * @author Ikra*/
 public class SystemViewDoctor extends javax.swing.JPanel {
 
     /**

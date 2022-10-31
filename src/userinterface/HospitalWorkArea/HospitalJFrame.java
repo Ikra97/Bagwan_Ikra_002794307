@@ -21,7 +21,7 @@ import userinterface.MainJFrame;
 
 /**
  *
- * @author Ikrauraj*/
+ * @author Ikra*/
 public class HospitalJFrame extends javax.swing.JFrame {
 
     /**

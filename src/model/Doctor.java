@@ -8,7 +8,7 @@ import java.util.Date;
 
 /**
  *
- * @author Ikrauraj*/
+ * @author Ikra*/
 public class Doctor extends Person{
     
     private int doctorId;

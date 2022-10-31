@@ -16,7 +16,7 @@ import model.PersonDirectory;
 
 /**
  *
- * @author Ikrauraj*/
+ * @author Ikra*/
 public class HospitalViewPatient extends javax.swing.JPanel {
 
     /**
